@@ -24,5 +24,7 @@ int _printfstring(va_list args);
 int _printfchar(va_list args);
 int _printfint(va_list args);
 int recursive_int(int n, int count);
+int _printfbin(va_list args);
+int _pow_recursion(int x, int y);
 
 #endif
