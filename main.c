@@ -24,8 +24,12 @@ int main(void)
     printf("String:[%s]\n", "I am a string !");
     len = _printf("Percent:[%%]\n");
     len2 = printf("Percent:[%%]\n");
+    _printf("%b\n", 98);
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
-    _printf("%b\n", 98);
+    len = _printf("%b\n", 98);
+    _printf("Len:[%d]\n", len);
+    len = _printf("%i\n", INT_MAX);
+    _printf("Len:[%d]\n", len);
     return (0);
 }
