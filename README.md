@@ -1,6 +1,6 @@
 # printf
 
-## Description
+## Description : manipulate a printf and all functions around it
 
 ### Resources
 
