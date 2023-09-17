@@ -2,19 +2,26 @@
 #include <string.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  * recursive_int - prints the integer
  * @n: the number to be printed
- * @count: the count of the loops
  *
  * Return: number of numbers printed
  */
-int recursive_int(int n, int count)
+int recursive_int(int n)
 {
 	int n1;
+	int count = 0;
 
-	if (n < 0)
+	if (n == INT_MIN)
+	{
+		n1 = -(n + 1);
+		putchar('-');
+		count++;
+	}
+	else if (n < 0)
 	{
 		n1 = -n;
 		putchar('-');
@@ -22,11 +29,11 @@ int recursive_int(int n, int count)
 	}
 	else
 		n1 = n;
+	count++;
 	if (n1 / 10)
 	{
-		recursive_int(n1 / 10, count);
+		count = count + recursive_int(n1 / 10);
 	}
-	count++;
 	putchar('0' + (n1 % 10));
 	return (count);
 
@@ -43,6 +50,6 @@ int _printfint(va_list args)
 	int d, sum;
 
 	d = va_arg(args, int);
-	sum = recursive_int(d, 0);
+	sum = recursive_int(d);
 	return (sum);
 }
