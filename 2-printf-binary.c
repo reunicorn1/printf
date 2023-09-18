@@ -50,7 +50,7 @@ int _printfbin(va_list args)
 				for (j = (num == 0) ? i - 1 : i - 2; j >= 0; j--)
 				{
 					pwr = _pow_recursion(2, j);
-					if (num <(int) pwr)
+					if (num < (int) pwr)
 					{
 						putchar('0');
 						sum++;
