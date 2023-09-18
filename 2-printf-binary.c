@@ -14,8 +14,6 @@ int _pow_recursion(unsigned int x, unsigned int y)
 {
 	unsigned int sum;
 
-	if (y < 0)
-		return (-1);
 	if (y == 0)
 		return (1);
 	y--;
