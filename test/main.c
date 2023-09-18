@@ -40,14 +40,13 @@ int main(void)
     len = _printf("%i%d%c\n", 3, 5,'f');
     _printf("Len:[%d]\n", len);*/
     /*_printf("Len:[%d]\n", len);*/
-    _printf("Hola %s",NULL);
-    _printf("%b\n", 10);
-    _printf("%b\n", 128);
-    _printf("%b\n", 4294967295);
-    _printf("%b\n", 65535);
-    _printf("%b\n", 98);
-    _printf("%b\n", 32768);
-    _printf("%b\n", 2147483647);
+    _printf("%i\n", 128);
+    _printf("%d\n", 4294967295);
+    _printf("%i\n", 65535);
+    _printf("%d\n", 98);
+    _printf("%i\n", 32768);
+    _printf("%d\n", 2147483647);
+    _printf("%b\n", 0);
 
     return (0);
 }
