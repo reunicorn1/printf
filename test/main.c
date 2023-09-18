@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-    int len;
+    /*int len;
     int len2;
 
     len = _printf("Let's try to printf a simple sentence.\n");
@@ -31,5 +31,22 @@ int main(void)
     _printf("Len:[%d]\n", len);
     len = _printf("%i\n", INT_MAX);
     _printf("Len:[%d]\n", len);
+    len = _printf("%i\n", 456789);
+    _printf("Len:[%d]\n", len);
+    len = _printf("%i\n", INT_MAX);
+    _printf("Len:[%d]\n", len);
+    len = _printf("%i\n", -987654321);
+    _printf("Len:[%d]\n", len);
+    len = _printf("%i%d%c\n", 3, 5,'f');
+    _printf("Len:[%d]\n", len);*/
+    /*_printf("Len:[%d]\n", len);*/
+    _printf("%i\n", 128);
+    _printf("%d\n", 4294967295);
+    _printf("%i\n", 65535);
+    _printf("%d\n", 98);
+    _printf("%i\n", 32768);
+    _printf("%d\n", 2147483647);
+    _printf("%b\n", 0);
+
     return (0);
 }
