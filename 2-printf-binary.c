@@ -10,9 +10,9 @@
  * Return: the answer
  */
 
-int _pow_recursion(int x, int y)
+int _pow_recursion(unsigned int x, unsigned int y)
 {
-	int sum;
+	unsigned int sum;
 
 	if (y < 0)
 		return (-1);
@@ -32,30 +32,32 @@ int _pow_recursion(int x, int y)
 
 int _printfbin(va_list args)
 {
-	unsigned int n;
-	int i, j, pwr, num, flag, sum;
+	unsigned int n, pwr;
+	int i, j, num, flag, sum;
 
 	n = va_arg(args, int);
 	sum = 0;
 	pwr = 0;
-	for (i = 0, flag = 0; pwr < (int)n; i++)
+	for (i = 0, flag = 0; pwr < n; i++)
 	{
+		if (n == 4294967295)
+			i = 32;
 		pwr = _pow_recursion(2, i);
-			if (pwr > (int)n)
+			if (pwr >= n || n == 4294967295)
 			{
 				flag = 1;
-				num = n - (_pow_recursion(2, (i - 1)));
+				num = (pwr == n) ? (n - pwr) : (n - _pow_recursion(2, (i - 1)));
 				putchar('1');
 				sum++;
-				for (j = i - 2; j >= 0; j--)
+				for (j = (num == 0) ? i - 1 : i - 2; j >= 0; j--)
 				{
 					pwr = _pow_recursion(2, j);
-					if (num < pwr)
+					if (num <(int) pwr)
 					{
 						putchar('0');
 						sum++;
 					}
-					if (num >= pwr)
+					if (num >= (int)pwr)
 					{
 						num = num - pwr;
 						putchar('1');

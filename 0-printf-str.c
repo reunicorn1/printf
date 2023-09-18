@@ -15,6 +15,11 @@ int _printfstring(va_list args)
 	char *s;
 
 	s = va_arg(args, char *);
+	if (s == NULL)
+	{
+		fputs("(null)", stdout);
+		return (strlen("(null)"));
+	}
 	fputs(s, stdout);
 	return (strlen(s));
 }
