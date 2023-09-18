@@ -25,6 +25,6 @@ int _printfchar(va_list args);
 int _printfint(va_list args);
 int recursive_int(int n);
 int _printfbin(va_list args);
-int _pow_recursion(int x, int y);
+int _pow_recursion(unsigned int x, unsigned int y);
 
 #endif
