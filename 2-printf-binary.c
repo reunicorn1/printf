@@ -36,6 +36,11 @@ int _printfbin(va_list args)
 	n = va_arg(args, int);
 	sum = 0;
 	pwr = 0;
+	if (n == 0)
+	{
+		putchar('0');
+		return (1);
+	}
 	for (i = 0, flag = 0; pwr < n; i++)
 	{
 		if (n == 4294967295)
