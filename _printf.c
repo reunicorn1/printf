@@ -18,32 +18,40 @@ int _printf(const char *format, ...)
 	int (*ptr)(va_list);
 	print_fun f[] = {
 		{"%s", _printfstring}, {"%c", _printfchar}, {"%i", _printfint},
-		{"%d", _printfint}
+		{"%d", _printfint}, {"%b", _printfbin}
 	};
 
 	va_start(arg, format);
-	if (format == NULL || format[0] == '\0')
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	for (i = 0, sum = 0; format[i]; i++)
+	sum = 0;
+	for (i = 0; format[i]; i++)
 	{
-		flag = 0;
-		for (j = 0; j < 4; j++)
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			if (format[i] == f[j].form[0] && format[i + 1] == f[j].form[1])
+			flag = 0;
+			for (j = 0; j < 5; j++)
 			{
-				ptr = f[j].f;
-				sum += ptr(arg);
-				i++;
-				flag = 1;
-				break;
+				if (format[i] == f[j].form[0] && format[i + 1] == f[j].form[1])
+				{
+					ptr = f[j].f;
+					sum += ptr(arg);
+					i++;
+					flag = 1;
+					break;
+				}
+			}
+			if (!flag)
+			{
+				putchar(format[i]);
+				sum++;
 			}
 		}
-		if (flag == 1)
-			continue;
-		if (format[i] == '%' && format[i + 1] == '%')
-			i++;
-		putchar(format[i]);
-		sum++;
+		else
+		{
+			putchar(format[i]);
+			sum++;
+		}
 	}
 	va_end(arg);
 	return (sum);
