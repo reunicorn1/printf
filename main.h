@@ -30,5 +30,9 @@ int _printfhex_lower(va_list args);
 int _printfhex_upper(va_list args);
 void putcharhex(unsigned int num, int option);
 int _printfhex(unsigned int num, int option);
+int _printfoct(va_list args);
+int _printing_oct(unsigned int num);
+int recursive_unint(unsigned int n);
+int _printfunint(va_list args);
 
 #endif

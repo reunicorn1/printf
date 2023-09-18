@@ -58,6 +58,11 @@ int _printfhex_lower(va_list args)
 	int sum;
 
 	x = va_arg(args, unsigned int);
+	if (x == 0)
+	{
+		putchar('0');
+		return (1);
+	}
 	sum = _printfhex(x, 1);
 	return (sum);
 
@@ -76,6 +81,11 @@ int _printfhex_upper(va_list args)
 	int sum;
 
 	x = va_arg(args, unsigned int);
+	if (x == 0)
+	{
+		putchar('0');
+		return (1);
+	}
 	sum = _printfhex(x, 2);
 	return (sum);
 }
