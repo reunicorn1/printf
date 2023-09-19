@@ -23,7 +23,6 @@ int _printf(const char *format, ...);
 int _printfstring(va_list args);
 int _printfchar(va_list args);
 int _printfint(va_list args);
-int recursive_int(int n);
 int _printfbin(va_list args);
 int _pow_recursion(unsigned int x, unsigned int y);
 int _printfhex_lower(va_list args);
