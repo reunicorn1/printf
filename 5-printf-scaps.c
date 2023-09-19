@@ -60,6 +60,9 @@ int _printfscap(va_list args)
 	for (i = 0; i < (int)strlen(str); i++)
 	{
 		if ((unsigned char)str[i] < 32 || (unsigned char)str[i] >= 127)
+		{
+			fputs("\\x", stdout);
+
 
 
 
