@@ -42,5 +42,8 @@ void _printfhexmod(int num)
 /**
   * _printfscap - prints string with a catch
   * @args: the string argument to be taken
+  * 
+  * Return: numbers of characters printed
+  */
 
 
