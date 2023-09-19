@@ -13,6 +13,9 @@ int main(void)
     int len;
     unsigned long j, m;
     void *ptr;
+    void *addr;
+    void *pointer = NULL;
+
     ptr = &j;
     /*int len2;
     unsigned int ui;
@@ -44,7 +47,17 @@ int main(void)
     _printf("Len:[%d]\n", len);
     m = (unsigned long)ptr;
     printf("%lu\n", m);
-    len = printf("%p", ptr);
-    printf("len:[%d]", len);
+    _printf("%p\n", &m);
+    len = printf("%p\n", (void *)&m);
+    printf("len:[%d]\n", len);
+    addr = (void *)0x7ffe637541f0;
+    len = _printf("Address:[%p]\n", addr);
+    _printf("Len:[%d]\n", len);
+    len = printf("Address:[%p]\n", addr);
+    printf("Len:[%d]\n", len);
+    len = _printf("[%p]\n", pointer);
+    _printf("Len:[%d]\n", len);
+    len = printf("[%p]\n", pointer);
+    printf("Len:[%d]\n", len);
     return (0);
 }
