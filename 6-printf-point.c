@@ -40,8 +40,8 @@ int _printfpointer(va_list args)
 	ul = va_arg(args, unsigned long);
 	if (ul == 0)
 	{
-		fputs("(null)", stdout);
-		return (strlen("(null)"));
+		fputs("(nil)", stdout);
+		return (strlen("(nil)"));
 	}
 	fputs("0x", stdout);
 	sum = 2;
