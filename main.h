@@ -40,5 +40,6 @@ void putcharhexmod(int num);
 int _printfhex_ul(unsigned long num, int option);
 int _printfpointer(va_list args);
 int _printfreverse(va_list args);
+int _printfrot13(va_list args);
 
 #endif
