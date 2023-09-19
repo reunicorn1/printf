@@ -11,12 +11,14 @@
 
 int main(void)
 {
-	int len;
 
-	len = printf("%p\n", NULL);
-	printf("len: [%d]\n", len);
-	len = _printf("%p\n", NULL);
-	_printf("len: [%d]\n", len);
-
+	_printf("%r\n", "Hello");
+	_printf("%r\n", "Lorem ipsum dolor sit amet");
+	_printf("%r\n", "");
+	_printf("%r\n", " \t Test String\n");
+	_printf("%r\n", "!@#$%^&*()");
+	_printf("%r\n", "Café");
+	_printf("%r\n", "\n\t\b");
+	_printf("%r\n", NULL);
 	return (0);
 }
