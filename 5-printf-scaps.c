@@ -48,6 +48,9 @@ void _printfhexmod(int num)
 
 int _printfscap(va_list args)
 {
+	int i, count = 0;
+	char *str;
+
 
 
 
