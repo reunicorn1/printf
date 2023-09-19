@@ -65,6 +65,10 @@ int _printfscap(va_list args)
 			if ((unsigned char)str[i] < 16)
 				putchar('0');
 			_printfhexmod((unsigned char)str[i]);
+			count += 4;
+			continue;
+		}
+
 
 
 
