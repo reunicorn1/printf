@@ -53,6 +53,11 @@ int _printfscap(va_list args)
 
 	str = va_arg(args, char *);
 	if (str == NULL)
+	{
+		fputs("(null)", stdout);
+		return (strlen("(null)"));
+	}
+
 
 
 
