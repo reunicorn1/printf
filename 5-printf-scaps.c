@@ -58,16 +58,16 @@ int _printfscap(va_list args)
 	}
 	for (i = 0; i < (int)strlen(str); i++)
 	{
-		if (str[i] < 32 || str[i] >= 127)
+		if ((unsigned char)str[i] < 32 || (unsigned char)str[i] >= 127)
 		{
 			fputs("/x", stdout);
-			if (str[i] < 16)
+			if ((unsigned char)str[i] < 16)
 				putchar('0');
-			_printfhexmod(str[i]);
+			_printfhexmod((unsigned char)str[i]);
 			count = count + 4;
 			continue;
 		}
-		putchar(str[i]);
+		putchar((unsigned char)str[i]);
 		count++;
 	}
 	return (count);

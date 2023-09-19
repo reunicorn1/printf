@@ -37,7 +37,7 @@ int main(void)
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");*/
-    _printf("%S\n", "Best\x7ESchool");
+    len = _printf("%S\n", "Best\x1BSchool");
     _printf("Len:[%d]\n", len);
     _printf("%S", "This is À character");
     for (i = 0; i < (int)sizeof(buffer); i++)
