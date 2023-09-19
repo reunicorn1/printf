@@ -38,3 +38,6 @@ void _printfhexmod(int num)
 		putcharhexmod(num % 16);
 	}
 }
+
+/**
+  * 
