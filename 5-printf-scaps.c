@@ -23,4 +23,10 @@ void putcharhexmod(int num)
 	}
 }
 
+/**
+  * _printfhexmod - prints a name as is
+  * @num: the unsigned int which comes from the argument list
+  *
+  * Return: the sum of letters printed
+  */
 
