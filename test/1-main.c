@@ -12,10 +12,11 @@
 int main(void)
 {
 	int len;
-	int *ptr;
 
-	len = printf("%p\n", (void *)ptr);
+	len = printf("%p\n", NULL);
 	printf("len: [%d]\n", len);
-	len = _printf("%p\n", ptr);
+	len = _printf("%p\n", NULL);
 	_printf("len: [%d]\n", len);
+
+	return (0);
 }
