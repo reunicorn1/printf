@@ -30,3 +30,11 @@ void putcharhexmod(int num)
   * Return: the sum of letters printed
   */
 
+void _printfhexmod(int num)
+{
+	if (num > 0)
+	{
+		_printfhexmod(num / 16);
+		putcharhexmod(num % 16);
+	}
+}
