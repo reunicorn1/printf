@@ -62,6 +62,9 @@ int _printfscap(va_list args)
 		if ((unsigned char)str[i] < 32 || (unsigned char)str[i] >= 127)
 		{
 			fputs("\\x", stdout);
+			if ((unsigned char)str[i] < 16)
+				putchar('0');
+			_printfhexmod((unsigned char)str[i]);
 
 
 
