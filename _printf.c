@@ -18,7 +18,8 @@ int _printf(const char *format, ...)
 	int (*ptr)(va_list);
 	print_fun f[] = {
 		{"%s", _printfstring}, {"%c", _printfchar}, {"%i", _printfint},
-		{"%d", _printfint}, {"%b", _printfbin}
+		{"%d", _printfint}, {"%b", _printfbin}, {"%x", _printfhex_lower},
+		{"%X", _printfhex_upper}, {"%o", _printfoct}, {"%u", _printfunint},
 	};
 
 	va_start(arg, format);
@@ -27,7 +28,7 @@ int _printf(const char *format, ...)
 	for (i = 0, sum = 0; format[i]; i++)
 	{
 		flag = 0;
-		for (j = 0; j < 5; j++)
+		for (j = 0; j < 9; j++)
 		{
 			if (format[i] == f[j].form[0] && format[i + 1] == f[j].form[1])
 			{
