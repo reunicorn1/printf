@@ -46,4 +46,8 @@ void _printfhexmod(int num)
   * Return: numbers of characters printed
   */
 
+int _printfscap(va_list args)
+{
+
+
 
