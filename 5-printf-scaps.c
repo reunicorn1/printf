@@ -70,12 +70,7 @@ int _printfscap(va_list args)
 		}
 		putchar((unsigned char)str[i]);
 		count++;
-
-
-
-
-
-
-
-
+	}
+	return (count);
+}
 
