@@ -9,8 +9,8 @@
 /**
  * struct print_fun - Struct print_fun
  *
- * @format: The specifier format
- * @fun: The function associated
+ * @form: The specifier format
+ * @f: The function associated
  */
 typedef struct print_fun
 {
@@ -34,5 +34,8 @@ int _printfoct(va_list args);
 int _printing_oct(unsigned int num);
 int recursive_unint(unsigned int n);
 int _printfunint(va_list args);
+int _printfscap(va_list args);
+void _printfhexmod(int num);
+void putcharhexmod(int num);
 
 #endif
