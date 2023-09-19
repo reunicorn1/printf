@@ -5,11 +5,12 @@
 #include "main.h"
 
 /**
-  * putcharhexmod - 
+  * putcharhexmod - prints numbers from 0 - 15 in hex 
+  * @num: the number to be printed
   *
-  *
-  *
+  * Return: nothing
   */
+
 void putcharhexmod(int num)
 {
 	if (num < 10)
