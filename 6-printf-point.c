@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * _printfhex_ul - prints numbers as hex but with unsigned long type
@@ -37,13 +38,13 @@ int _printfpointer(va_list args)
 	int sum;
 
 	ul = va_arg(args, unsigned long);
-	fputs("0x", stdout);
-	sum = 2;
 	if (ul == 0)
 	{
-		putchar('0');
-		return (sum + 1);
+		fputs("(null)", stdout);
+		return (strlen("(null)"));
 	}
+	fputs("0x", stdout);
+	sum = 2;
 	sum += _printfhex_ul(ul, 1);
 	return (sum);
 }
