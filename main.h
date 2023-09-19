@@ -37,5 +37,7 @@ int _printfunint(va_list args);
 int _printfscap(va_list args);
 void _printfhexmod(int num);
 void putcharhexmod(int num);
+int _printfhex_ul(unsigned long num, int option);
+int _printfpointer(va_list args);
 
 #endif
