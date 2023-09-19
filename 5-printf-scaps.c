@@ -51,6 +51,9 @@ int _printfscap(va_list args)
 	int i, count = 0;
 	char *str;
 
+	str = va_arg(args, char *);
+	if (str == NULL)
+
 
 
 
