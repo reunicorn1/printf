@@ -68,6 +68,8 @@ int _printfscap(va_list args)
 			count += 4;
 			continue;
 		}
+		putchar((unsigned char)str[i]);
+
 
 
 
