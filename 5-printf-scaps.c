@@ -60,7 +60,7 @@ int _printfscap(va_list args)
 	}
 	for (i = 0; i < (int)strlen(str); i++)
 	{
-		if ((str[i] > 0 && str[i] < 32) || str[i] >= 127)
+		if (str[i] < 32 || str[i] >= 127)
 		{
 			fputs("/x", stdout);
 			_printfhexmod(str[i]);

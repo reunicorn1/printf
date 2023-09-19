@@ -1,4 +1,5 @@
 #include <limits.h>
+#include <string.h>
 #include <stdio.h>
 #include "main.h"
 
@@ -9,8 +10,9 @@
  */
 int main(void)
 {
-    int len;
-    int len2;
+    int len, i;
+    char buffer[] = "This is a string!\0And this is the rest of the #buffer :)\1\2\3\4\5\6\7#cisfun\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x20\x21\x34\x56#pointersarefun #infernumisfun\n";
+    /*int len2;
     unsigned int ui;
 
     len = _printf("Let's try to printf a simple sentence.\n");
@@ -34,7 +36,10 @@ int main(void)
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    _printf("%S\n", "Best\nSchool");
+    _printf("Unknown:[%r]\n");*/
+    len = _printf("%S\n", "Best\nSchool");
+    _printf("Len:[%d]\n", len);
+    for (i = 0; i < (int)sizeof(buffer); i++)
+	    putchar(buffer[i]);
     return (0);
 }
