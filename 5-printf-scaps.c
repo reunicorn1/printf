@@ -57,6 +57,8 @@ int _printfscap(va_list args)
 		fputs("(null)", stdout);
 		return (strlen("(null)"));
 	}
+	for (i = 0; i < (int)strlen(str); i++)
+	{
 
 
 
