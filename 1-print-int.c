@@ -10,7 +10,7 @@
  *
  * Return: number of numbers printed
  */
-static int recursive_int(int n)
+int recursive_int(int n)
 {
 	int n1;
 	int count = 0;
@@ -47,7 +47,6 @@ static int recursive_int(int n)
 
 int _printfint(va_list args)
 {
-	static int recursive_int(int n);
 	int d, sum;
 
 	d = va_arg(args, int);
