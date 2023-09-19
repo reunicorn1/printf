@@ -14,12 +14,10 @@ void putcharhexmod(int num)
 {
 	if (num < 10)
 	{
-		putchar('0');
 		putchar('0' + num);
 	}
 	if (num > 9)
 	{
-		putchar('0');
 		putchar('A' + (num % 10));
 	}
 }
@@ -63,6 +61,8 @@ int _printfscap(va_list args)
 		if (str[i] < 32 || str[i] >= 127)
 		{
 			fputs("/x", stdout);
+			if (str[i] < 16)
+				putchar('0');
 			_printfhexmod(str[i]);
 			count = count + 4;
 			continue;
