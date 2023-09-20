@@ -11,9 +11,8 @@
 int main(void)
 {
     int len;
-    unsigned long j, m;
-    void *ptr;
-    ptr = &j;
+    long int res = (long int)INT_MAX * 2;
+
     /*int len2;
     unsigned int ui;
 
@@ -40,11 +39,21 @@ int main(void)
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");*/
-    len = _printf("%S\n", "Best\x1BSchool");
-    _printf("Len:[%d]\n", len);
-    m = (unsigned long)ptr;
-    printf("%lu\n", m);
-    len = printf("%p", ptr);
-    printf("len:[%d]", len);
+    
+    len = _printf("%b", INT_MIN);
+    _printf("len: [%d]\n", len);
+    len = _printf("%b", res);
+    _printf("len: [%d]\n", len);
+    len = _printf("%b", 2147483647);
+    _printf("len: [%d]\n", len);
+    len = _printf("%b", 1024);
+    _printf("len: [%d]\n", len);
+    len = _printf("%b", -1024);
+    _printf("len: [%d]\n", len);
+    len = _printf("%b", 0);
+    _printf("len: [%d]\n", len);
+    len = _printf("%b", UINT_MAX);
+    _printf("len: [%d]\n", len);
+
     return (0);
 }
