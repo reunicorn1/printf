@@ -5,7 +5,7 @@
 #include "main.h"
 
 /**
-  * putcharhexmod - prints numbers from 0 - 15 in hex 
+  * putcharhexmod - prints numbers from 0 - 15 in hex
   * @num: the number to be printed
   *
   * Return: nothing
@@ -42,7 +42,7 @@ void _printfhexmod(int num)
 /**
   * _printfscap - prints string with a catch
   * @args: the string argument to be taken
-  * 
+  *
   * Return: numbers of characters printed
   */
 
