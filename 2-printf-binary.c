@@ -10,9 +10,9 @@
  * Return: the answer
  */
 
-int _pow_recursion(unsigned int x, unsigned int y)
+long _pow_recursion(int x, int y)
 {
-	unsigned int sum;
+	long sum;
 
 	if (y == 0)
 		return (1);
@@ -22,6 +22,43 @@ int _pow_recursion(unsigned int x, unsigned int y)
 }
 
 /**
+ * _printfbin_negative - handles the case when the argument is negative
+ * @n: the negative number
+ *
+ * Return: the number of int printed
+ */
+
+int _printfbin_negative(long n)
+{
+	int i, sum;
+	long num, pwr;
+
+	sum = 0;
+	num = -(n);
+	for (i = 31; i >= 0; i++)
+	{
+		pwr = _pow_recursion(2, i);
+		if (i == 0)
+		{
+			putchar('1');
+			sum++;
+			break;
+		}
+		if (num >= pwr)
+		{
+			putchar('0');
+			num = pwr - num;
+			sum++;
+		}
+		if (num < pwr)
+		{
+			putchar('1');
+			sum++;
+		}
+	}
+	return (sum);
+}
+/**
  * _printfbin - handles the case of the specifer &b
  * @args: the required argument
  *
@@ -30,10 +67,12 @@ int _pow_recursion(unsigned int x, unsigned int y)
 
 int _printfbin(va_list args)
 {
-	unsigned int n, pwr;
-	int i, j, num, flag, sum;
+	long n, pwr, num;
+	int i, j, flag, sum;
 
-	n = va_arg(args, int);
+	n = va_arg(args, long);
+	if (n < 0)
+		return (_printfbin_negative(n));
 	if (n == 0)
 	{
 		putchar('0');
@@ -41,10 +80,8 @@ int _printfbin(va_list args)
 	}
 	for (i = 0, sum = 0, pwr = 0, flag = 0; pwr < n; i++)
 	{
-		if (n == 4294967295)
-			i = 32;
 		pwr = _pow_recursion(2, i);
-			if (pwr >= n || n == 4294967295)
+			if (pwr >= n)
 			{
 				flag = 1;
 				num = (pwr == n) ? (n - pwr) : (n - _pow_recursion(2, (i - 1)));
@@ -53,12 +90,12 @@ int _printfbin(va_list args)
 				for (j = (num == 0) ? i - 1 : i - 2; j >= 0; j--)
 				{
 					pwr = _pow_recursion(2, j);
-					if (num < (int) pwr)
+					if (num < pwr)
 					{
 						putchar('0');
 						sum++;
 					}
-					if (num >= (int)pwr)
+					if (num >= pwr)
 					{
 						num = num - pwr;
 						putchar('1');
