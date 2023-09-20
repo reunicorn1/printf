@@ -25,7 +25,7 @@ int _printfchar(va_list args);
 int _printfint(va_list args);
 int recursive_int(int n);
 int _printfbin(va_list args);
-int _pow_recursion(unsigned int x, unsigned int y);
+long _pow_recursion(int x, int y);
 int _printfhex_lower(va_list args);
 int _printfhex_upper(va_list args);
 void putcharhex(unsigned int num, int option);

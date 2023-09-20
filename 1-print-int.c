@@ -15,13 +15,7 @@ int recursive_int(int n)
 	int n1;
 	int count = 0;
 
-	if (n == INT_MIN)
-	{
-		n1 = -(n + 1);
-		putchar('-');
-		count++;
-	}
-	else if (n < 0)
+	if (n < 0)
 	{
 		n1 = -n;
 		putchar('-');
@@ -50,6 +44,11 @@ int _printfint(va_list args)
 	int d, sum;
 
 	d = va_arg(args, int);
+	if (d == INT_MIN)
+	{
+		fputs("-2147483648", stdout);
+		return (11);
+	}
 	sum = recursive_int(d);
 	return (sum);
 }
