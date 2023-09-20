@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <limits.h>
 
 /**
  * _pow_recursion  - returns the valuue of x raised to the power of y
@@ -67,10 +68,11 @@ int _printfbin_negative(long n)
 
 int _printfbin(va_list args)
 {
-	long n, pwr, num;
+	long pwr, num, n = va_arg(args, long);
 	int i, j, flag, sum;
 
-	n = va_arg(args, long);
+	if (n > UINT_MAX)
+		n -= (long) UINT_MAX + 1;
 	if (n < 0)
 		return (_printfbin_negative(n));
 	if (n == 0)
@@ -81,30 +83,29 @@ int _printfbin(va_list args)
 	for (i = 0, sum = 0, pwr = 0, flag = 0; pwr < n; i++)
 	{
 		pwr = _pow_recursion(2, i);
-			if (pwr >= n)
+		if (pwr >= n)
+		{
+			num = (pwr == n) ? (n - pwr) : (n - _pow_recursion(2, (i - 1)));
+			putchar('1');
+			sum++;
+			for (j = (num == 0) ? i - 1 : i - 2, flag = 1; j >= 0; j--)
 			{
-				flag = 1;
-				num = (pwr == n) ? (n - pwr) : (n - _pow_recursion(2, (i - 1)));
-				putchar('1');
-				sum++;
-				for (j = (num == 0) ? i - 1 : i - 2; j >= 0; j--)
+				pwr = _pow_recursion(2, j);
+				if (num < pwr)
 				{
-					pwr = _pow_recursion(2, j);
-					if (num < pwr)
-					{
-						putchar('0');
-						sum++;
-					}
-					if (num >= pwr)
-					{
-						num = num - pwr;
-						putchar('1');
-						sum++;
-					}
+					putchar('0');
+					sum++;
+				}
+				if (num >= pwr)
+				{
+					num = num - pwr;
+					putchar('1');
+					sum++;
 				}
 			}
-			if (flag == 1)
-				break;
+		}
+		if (flag == 1)
+			break;
 	}
 	return (sum);
 }
