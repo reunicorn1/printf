@@ -50,19 +50,25 @@ int (*flag_fun(const char *format, int index))(va_list)
 		case '#':
 			if (format[index + 1] == 'X')
 				return (_printfhex_upper_flag);
-			if (format[index + 1] == 'x')
+			else if (format[index + 1] == 'x')
 				return (_printfhex_lower_flag);
-			if (format[index + 1] == 'o')
+			else if (format[index + 1] == 'o')
 				return (_printfoct_flag);
+			else
+				return (NULL);
 		case '+':
 			if (format[index + 1] == 'i' || format[index + 1] == 'd')
 				return (_printfint_flag1);
+			else
+				return (NULL);
 		case ' ':
 			if (format[index + 1] == '+' && (format[index + 2] == 'd'
 					|| format[index + 2] == 'i'))
 				return (_printfint_flag1);
-			if (format[index + 1] == 'i' || format[index + 1] == 'd')
+			else if (format[index + 1] == 'i' || format[index + 1] == 'd')
 				return (_printfint_flag2);
+			else
+				return (NULL);
 		default:
 			return (NULL);
 
