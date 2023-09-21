@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <limits.h>
+#include "main.h"
 
 /**
  * recursive_int - prints the integer
