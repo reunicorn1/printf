@@ -41,5 +41,13 @@ int _printfhex_ul(unsigned long num, int option);
 int _printfpointer(va_list args);
 int _printfreverse(va_list args);
 int _printfrot13(va_list args);
+int (*func_gen(const char *format, int index))(va_list);
+int (*flag_fun(const char *format, int index))(va_list);
+int _printfhex_upper_flag(va_list args);
+int _printfhex_lower_flag(va_list args);
+int _printfoct_flag(va_list args);
+int _printfint_flag1(va_list args);
+int _printfint_flag2(va_list args);
+int space_checker(const char *format, int i);
 
 #endif
