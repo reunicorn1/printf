@@ -22,6 +22,14 @@ int _printf(const char *format, ...)
 					(format[1] == ' ' && format[2] == '\0'))))
 		return (-1);
 	for (i = 0, sum = 0; format[i]; i++)
+	{
+		flag = 0;
+		if (format[i] == '%' && format[i + 1] != '%')
+		{
+			ptr = func_gen(format, (i + 1));
+			if (ptr != NULL)
+			{
+				sum += ptr(arg);
 
 
 
