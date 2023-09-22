@@ -38,6 +38,9 @@ int _printf(const char *format, ...)
 			continue;
 		if (format[i] == '%' && format[i + 1] == ' ' && format[i + 2] == '%')
 			i += 2;
+		if (format[i] == '%' && format[i + 1] == '%')
+			i++;
+
 
 
 
