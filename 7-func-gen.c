@@ -27,6 +27,8 @@ int (*func_gen(const char *format, int index))(va_list)
 		if (format[index] == f[j].form[1])
 			return (f[j].f);
 	}
+	if (format[index] == 'h' || format[index] == 'l')
+		return (length_mod(format, index));
 	for (i = 0; i < 3; i++)
 	{
 		if (format[index] == flags[i])
@@ -89,15 +91,20 @@ int (*flag_fun(const char *format, int index))(va_list)
 int space_checker(const char *format, int i)
 {
 	int j, k, index, flag = 0;
-	char flags[] = {'d', 'i', 'o', 'x', 'X'};
+	char flags[] = {'d', 'i', 'o', 'x', 'X', 'u'};
 	char f[] = {' ', '+', '#'};
-	
-	for (j = 0; j < 5; j++)
+
+	for (j = 0; j < 6; j++)
 	{
 		for (k = 0; k < 3; k++)
 		{
 			if (format[i + 1] == f[k] && format[i + 2] == flags[j])
-			
+			{
+				index = 2;
+				flag = 1;
+			}
+			if ((format[i + 1] == 'h' || format[i + 1] == 'l') &&
+					format[i + 2] == flags[j])
 			{
 				index = 2;
 				flag = 1;

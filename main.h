@@ -49,5 +49,20 @@ int _printfoct_flag(va_list args);
 int _printfint_flag1(va_list args);
 int _printfint_flag2(va_list args);
 int space_checker(const char *format, int i);
+int _printfint_short(va_list args);
+int _printfunint_short(va_list args);
+int _printfhex_lower_short(va_list args);
+int _printfhex_upper_short(va_list args);
+int _printfoct_short(va_list args);
+int (*length_mod(const char *format, int index))(va_list);
+int _printfint_long(va_list args);
+int recursive_int_long(long n);
+int _printfunint_long(va_list args);
+int recursive_unint_long(unsigned long n);
+int _printfhex_upper_long(va_list args);
+int _printfhex_lower_long(va_list args);
+int _printfhex_long(unsigned long num, int option);
+int _printfoct_long(va_list args);
+int _printing_oct_long(unsigned long num);
 
 #endif
