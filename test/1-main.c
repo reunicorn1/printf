@@ -12,9 +12,8 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("% \n");
-	len = _printf("% % % % \n");
-	len2 = printf("% % % % \n");
+	len = _printf("iddi%diddiiddi\n", 1024);
+	len2 = printf("iddi%diddiiddi\n", 1024);
 	fflush(stdout);
 	if (len != len2)
 	{
