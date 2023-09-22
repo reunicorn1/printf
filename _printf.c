@@ -13,36 +13,31 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j, flag, sum;
+	int i, flag, sum;
 	va_list arg;
 	int (*ptr)(va_list);
-	print_fun f[] = {
-		{"%s", _printfstring}, {"%c", _printfchar}, {"%i", _printfint},
-		{"%d", _printfint}, {"%b", _printfbin}, {"%x", _printfhex_lower},
-		{"%X", _printfhex_upper}, {"%o", _printfoct}, {"%u", _printfunint},
-		{"%S", _printfscap}, {"%p", _printfpointer}, {"%r", _printfreverse},
-		{"%R", _printfrot13}
-	};
 
 	va_start(arg, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL || (format[0] == '%' && (format[1] == '\0' ||
+					(format[1] == ' ' && format[2] == '\0'))))
 		return (-1);
 	for (i = 0, sum = 0; format[i]; i++)
 	{
 		flag = 0;
-		for (j = 0; j < 13; j++)
+		if (format[i] == '%' && format[i + 1] != '%')
 		{
-			if (format[i] == f[j].form[0] && format[i + 1] == f[j].form[1])
+			ptr = func_gen(format, (i + 1));
+			if (ptr != NULL)
 			{
-				ptr = f[j].f;
 				sum += ptr(arg);
-				i++;
+				i += space_checker(format, i);
 				flag = 1;
-				break;
 			}
 		}
 		if (flag == 1)
 			continue;
+		if (format[i] == '%' && format[i + 1] == ' ' && format[i + 2] == '%')
+			i += 2;
 		if (format[i] == '%' && format[i + 1] == '%')
 			i++;
 		putchar(format[i]);
