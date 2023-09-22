@@ -10,6 +10,17 @@
  */
 int main(void)
 {
-	_printf("% +i + %+ i = % +d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	int len, len2;
+
+	len = _printf("% \n");
+	len = _printf("% % % % \n");
+	len2 = printf("% % % % \n");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 	return (0);
 }
