@@ -59,6 +59,9 @@ int (*flag_fun(const char *format, int index))(va_list)
 		case '+':
 			if (format[index + 1] == 'i' || format[index + 1] == 'd')
 				return (_printfint_flag1);
+			else if (format[index + 1] == ' ' && (format[index + 2] == 'd'
+						|| format[index + 2] == 'i'))
+				return (_printfint_flag1);
 			else
 				return (NULL);
 		case ' ':
@@ -96,8 +99,8 @@ int space_checker(const char *format, int i)
 			flag = 1;
 		}
 	}
-	if (flag != 1 && format[i + 2] == '+' && (format[i + 3] == 'd'
-				|| format[i + 3] == 'i'))
+	if (flag != 1 && (format[i + 2] == '+' || format[i + 2] == ' ') &&
+			(format[i + 3] == 'd' || format[i + 3] == 'i'))
 	{
 		index = 3;
 		flag = 1;
