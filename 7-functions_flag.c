@@ -19,8 +19,8 @@ int _printfhex_upper_flag(va_list args)
 	x = va_arg(args, unsigned int);
 	if (x == 0)
 	{
-		fputs("00", stdout);
-		return (2);
+		fputs("0", stdout);
+		return (1);
 	}
 	fputs("0X", stdout);
 	sum = 2;
@@ -44,8 +44,8 @@ int _printfhex_lower_flag(va_list args)
 	sum = 2;
 	if (x == 0)
 	{
-		fputs("00", stdout);
-		return (2);
+		fputs("0", stdout);
+		return (1);
 	}
 	fputs("0x", stdout);
 	sum = 2;
@@ -70,8 +70,7 @@ int _printfoct_flag(va_list args)
 	sum = 1;
 	if (o == 0)
 	{
-		putchar('0');
-		return (1 + sum);
+		return (sum);
 	}
 	sum += _printing_oct(o);
 	return (sum);
