@@ -41,15 +41,10 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] == '%')
 			i++;
 		putchar(format[i]);
+		if (format[i] == '%' && (format[i + 1] == 'h' || format[i + 1] == 'l'))
+			i++;
 		sum++;
 	}
 	va_end(arg);
 	return (sum);
 }
-
-
-
-
-
-
-
