@@ -30,6 +30,8 @@ int _printf(const char *format, ...)
 			if (ptr != NULL)
 			{
 				sum += ptr(arg);
+				i += space_checker(format, i);
+				flag = 1;
 
 
 
