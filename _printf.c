@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	int (*ptr)(va_list);
 
 	va_start(arg, format);
-	if (format == NULL || (format[0] == '%' && (format[1] == '\0' || 
+	if (format == NULL || (format[0] == '%' && (format[1] == '\0' ||
 					(format[1] == ' ' && format[2] == '\0'))))
 		return (-1);
 	for (i = 0, sum = 0; format[i]; i++)
@@ -43,6 +43,9 @@ int _printf(const char *format, ...)
 		putchar(format[i]);
 		sum++;
 	}
+	va_end(arg);
+	return (sum);
+}
 
 
 
