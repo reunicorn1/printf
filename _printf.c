@@ -32,6 +32,11 @@ int _printf(const char *format, ...)
 				sum += ptr(arg);
 				i += space_checker(format, i);
 				flag = 1;
+			}
+		}
+		if (flag == 1)
+			continue;
+
 
 
 
