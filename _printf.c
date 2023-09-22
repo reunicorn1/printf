@@ -13,3 +13,4 @@
 
 int _printf(const char *format, ...)
 {
+	int i, flag, sum;
